@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\vBridgeCloud\CallLoginBundle\Auth;
 
-use App\vBridgeCloud\CallLoginBundle\Auth\AuthenticatedUser;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use RuntimeException;
