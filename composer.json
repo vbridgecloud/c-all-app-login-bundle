@@ -1,5 +1,5 @@
 {
-    "name": "vbridgecloud/call_login_bundle",
+    "name": "vbridgecloud/c-all-app-login-bundle",
     "description": "Symfony Bundle to connect C-all applications",
     "type": "library",
     "license": "MIT",
