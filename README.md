@@ -43,7 +43,7 @@ security:
         # ...
 
     access_control:
-        - { path: ^/authorize, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login/authorize, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 ```
 Whatever authorize endpoint you end up using (see below), it must be
 
