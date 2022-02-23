@@ -27,6 +27,25 @@ call_login:
   client_id: '%env(LOGIN_CLIENT_ID)%' # Client ID to be used to authenticate
   client_secret: '%env(LOGIN_CLIENT_SECRET)%' # Client secret
 ```
+Configure your security:
+```yaml
+# config/packages/security.yaml
+security:
+    providers:
+        user_provider:
+            id: call_login.user_provider
+    firewalls:
+        # ...
+        main:
+            custom_authenticators:
+                - call_login.authenticator
+            entry_point: call_login.entrypoint
+        # ...
+
+    access_control:
+        - { path: ^/authorize, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+```
+Whatever authorize endpoint you end up using (see below), it must be
 
 ### Authorization endpoint
 This bundle needs an endpoint to be redirected back to, either use the provided controller and route :
@@ -44,4 +63,4 @@ call_login:
 ```
 
 ### Optional configuration
-By default, after login, your app will be redirect to the `home` route. Make sure you either have a named route `home` or override it through configuration with the `login_redirect_path` config option.
+By default, after login, your app will be redirected to the `home` route. Make sure you either have a named route `home` or override it through configuration with the `login_redirect_path` config option.
