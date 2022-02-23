@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\vBridgeCloud\CallLoginBundle\Controller;
+namespace vBridgeCloud\CallLoginBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 

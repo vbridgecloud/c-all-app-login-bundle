@@ -2,11 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\vBridgeCloud\CallLoginBundle\DependencyInjection;
+namespace vBridgeCloud\CallLoginBundle\DependencyInjection;
 
-use App\vBridgeCloud\CallLoginBundle\Auth\AuthEntryPoint;
-use App\vBridgeCloud\CallLoginBundle\Auth\JwtAuthenticator;
-use App\vBridgeCloud\CallLoginBundle\Auth\UserProvider;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;

@@ -1,4 +1,4 @@
 call_login_authorize:
   path: /authorize
   # the controller value has the format 'controller_class::method_name'
-  controller: App\vBridgeCloud\CallLoginBundle\Controller\AuthController::index
+  controller: vBridgeCloud\CallLoginBundle\Controller\AuthController::index

@@ -1,0 +1,26 @@
+{
+    "name": "vbridgecloud/call_login_bundle",
+    "description": "Symfony Bundle to connect C-all applications",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "vBridgeCloud\\CallLoginBundle\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.4",
+        "lcobucci/jwt": "^4.1",
+        "symfony/config": "^5.4|^6.0",
+        "symfony/dependency-injection": "^5.4|^6.0",
+        "symfony/http-foundation": "^5.4|^6.0",
+        "symfony/routing": "^5.4|^6.0",
+        "symfony/security-core": "^5.4|^6.0",
+        "symfony/security-http": "^5.4|^6.0"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

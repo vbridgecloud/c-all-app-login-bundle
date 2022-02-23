@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\vBridgeCloud\CallLoginBundle\DependencyInjection;
+namespace vBridgeCloud\CallLoginBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

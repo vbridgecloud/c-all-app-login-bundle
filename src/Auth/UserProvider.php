@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\vBridgeCloud\CallLoginBundle\Auth;
+namespace vBridgeCloud\CallLoginBundle\Auth;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
