@@ -15,16 +15,12 @@ final class Configuration implements ConfigurationInterface
 
         $treeBuilder->getRootNode()
             ->children()
-                ->arrayNode('login_app')
-                    ->children()
-                        ->scalarNode('public_url')->isRequired()->end()
-                        ->scalarNode('internal_url')->isRequired()->end()
-                        ->scalarNode('client_id')->isRequired()->end()
-                        ->scalarNode('client_secret')->isRequired()->end()
-                    ->end()
-                ->end()
-                ->scalarNode('authorize_path')->isRequired()->end()
-                ->scalarNode('redirect_after_login_path')->defaultValue('home')->end()
+                ->scalarNode('public_url')->isRequired()->end()
+                ->scalarNode('internal_url')->isRequired()->end()
+                ->scalarNode('client_id')->isRequired()->end()
+                ->scalarNode('client_secret')->isRequired()->end()
+                ->scalarNode('login_redirect_path')->defaultValue('home')->end()
+                ->scalarNode('oauth_redirect_path')->defaultValue('call_login_authorize')->end()
             ->end()
         ;
 

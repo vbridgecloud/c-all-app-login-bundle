@@ -16,7 +16,7 @@ final class UserProvider implements UserProviderInterface
 {
     public function __construct(
         private RequestStack $requestStack,
-        private string $loginInternalUrl,
+        private string $internalLoginUrl,
     ) {
     }
 
@@ -30,7 +30,7 @@ final class UserProvider implements UserProviderInterface
 
         try {
             $client = new Client();
-            $client->get($this->loginInternalUrl . '/api/token/verify', ['headers' => [
+            $client->get($this->internalLoginUrl . '/api/token/verify', ['headers' => [
                 'Authorization' => 'Bearer ' . $loginToken,
             ]]);
         } catch (RequestException) {

@@ -30,15 +30,15 @@ final class JwtAuthenticator extends AbstractAuthenticator
         private readonly string $publicLoginUrl,
         private readonly string $clientId,
         private readonly string $clientSecret,
-        private readonly string $redirectPath,
-        private readonly RedirectUrlGenerator $redirectUrlGenerator,
+        private readonly string $oauthRedirectPath,
+        private readonly string $loginRedirectPath,
         private readonly UrlGeneratorInterface $urlGenerator,
     ) {
     }
 
     public function supports(Request $request): ?bool
     {
-        return $request->attributes->get('_route') === 'app_auth_index';
+        return $request->attributes->get('_route') === $this->oauthRedirectPath;
     }
 
     public function authenticate(Request $request): Passport
@@ -53,7 +53,7 @@ final class JwtAuthenticator extends AbstractAuthenticator
                         'grant_type' => 'authorization_code',
                         'client_id' => $this->clientId,
                         'client_secret' => $this->clientSecret,
-                        'redirect_uri' => $this->redirectUrlGenerator->generate(),
+                        'redirect_uri' => $this->urlGenerator->generate($this->oauthRedirectPath, [], UrlGeneratorInterface::ABSOLUTE_URL),
                         'code' => $request->query->get('code'),
                     ],
                 ],
@@ -97,7 +97,7 @@ final class JwtAuthenticator extends AbstractAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        return new RedirectResponse($this->urlGenerator->generate($this->redirectPath));
+        return new RedirectResponse($this->urlGenerator->generate($this->loginRedirectPath));
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response

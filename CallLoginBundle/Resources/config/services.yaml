@@ -1,0 +1,13 @@
+services:
+  call_login.entrypoint:
+    class: App\vBridgeCloud\CallLoginBundle\Auth\AuthEntryPoint
+    arguments:
+      [ '@?', '@?', '@?', '@router.default' ]
+  call_login.authenticator:
+    class: App\vBridgeCloud\CallLoginBundle\Auth\JwtAuthenticator
+    arguments:
+      [ '@?', '@?', '@?', '@?', '@?', '@?', '@router.default' ]
+  call_login.user_provider:
+    class: App\vBridgeCloud\CallLoginBundle\Auth\UserProvider
+    arguments:
+      [ '@request_stack', '@request_stack' ]
