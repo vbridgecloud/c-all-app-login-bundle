@@ -37,6 +37,7 @@ final class AuthEntryPoint implements AuthenticationEntryPointInterface
                     UrlGeneratorInterface::ABSOLUTE_URL
                 ),
                 'scope' => 'openid user-info',
+                'state' => $request->attributes->get('_route'),
             ]);
 
         return new RedirectResponse($url);
