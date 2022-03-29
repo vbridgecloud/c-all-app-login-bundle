@@ -20,6 +20,8 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPassport;
 
+use Throwable;
+
 use function assert;
 use function is_string;
 
@@ -97,7 +99,13 @@ final class JwtAuthenticator extends AbstractAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        return new RedirectResponse($this->urlGenerator->generate($this->loginRedirectPath));
+        try {
+            $url = $this->urlGenerator->generate($request->query->get('state'));
+        } catch (Throwable) {
+            $url = $this->urlGenerator->generate($this->loginRedirectPath);
+        }
+
+        return new RedirectResponse($url);
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
