@@ -34,6 +34,11 @@ final class AuthenticatedUser implements UserInterface
         return $this->id;
     }
 
+    public function getUserIdentifier(): string
+    {
+        return $this->id;
+    }
+
     public function getCompanyId(): string
     {
         return $this->companyId;
